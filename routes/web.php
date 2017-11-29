@@ -11,9 +11,7 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', '\App\Http\Controllers\PostController@index');
 // 文章列表页
 Route::get('posts', '\App\Http\Controllers\PostController@index');
 //创建文章页
