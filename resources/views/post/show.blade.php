@@ -3,7 +3,7 @@
             <div class="col-sm-8 blog-main">
                 <div class="blog-post">
                     <div style="display:inline-flex">
-                        <h2 class="blog-post-title">{{$post->title}}</h2>
+                        <h2 class="blog-post-title" style="margin-right: 20px;">{{$post->title}}</h2>
                         <a style="margin: auto"  href="/posts/{{$post->id}}/edit">
                             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                         </a>&nbsp;
@@ -14,10 +14,9 @@
 
                     <p class="blog-post-meta">{{$post->created_at->toFormattedDateString()}}&nbsp;<a href="#">Kassandra Ankunding2</a></p>
 
-                    <p>{{$post->content}}</p>
+                    {!! $post->content !!}
                     <div>
                         <a href="/posts/{{$post->id}}/zan" type="button" class="btn btn-primary btn-lg">赞</a>
-
                     </div>
                 </div>
                 <div class="panel panel-default">

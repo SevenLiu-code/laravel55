@@ -1,10 +1,12 @@
-var editor = new wangEditor('content');
+if( $("#content").length > 0 ) {
+    var editor = new wangEditor('content');
 
-editor.config.uploadImgUrl = '/posts/image/upload';
+    editor.config.uploadImgUrl = '/posts/image/upload';
 
 // 设置 headers（举例）
-editor.config.uploadHeaders = {
-    'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
-};
+    editor.config.uploadHeaders = {
+        'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
+    };
 
-editor.create();
+    editor.create();
+}
