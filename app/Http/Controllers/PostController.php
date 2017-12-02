@@ -55,11 +55,10 @@ class PostController extends Controller
     }
     public function update(Request $request, Post $post)
     {
-        if($request ->isMethod("POST")) { // 验证
-            dd('1');
+        if($request ->isMethod("PUT")) { // 验证
             $validator = Validator::make($request->all(), [
                 'title' => 'required|string|max:100|min:5',
-                'content' => 'required|string|min:10'
+                'content' => 'required|string|min:11'
             ], [
                 'required' => ':attribute必须填写',
                 'max' => ':attribute最大字符不超过100',
@@ -73,20 +72,21 @@ class PostController extends Controller
                     ->withErrors($validator)
                     ->withInput();
             }
-            $post ->title = $request('title');
-            $post ->content = $request('content');
+            $post ->title = $request->input('title');
+            $post ->content = $request->input('content');
             $post ->save();
             return redirect("posts/{$post ->id}");
         }
     }
-    public function delete()
+    public function delete(Post $post)
     {
-        return;
+        // 用户验证
+        $post->delete();
+        return redirect("/posts");
     }
     public function imageUpload(Request $request)
     {
         $path = $request ->file('wangEditorH5File') ->store(md5(time()));
         return asset('storage/'.$path);
     }
-
 }

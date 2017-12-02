@@ -7,7 +7,8 @@
                         <a style="margin: auto"  href="/posts/{{$post->id}}/edit">
                             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                         </a>&nbsp;
-                        <a style="margin: auto"  href="/posts/{{$post->id}}/delete">
+                        <a style="margin: auto" href="/posts/{{$post->id}}/delete"
+                         onclick="if(confirm('确定删除吗？') == false) return false;">
                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                         </a>
                     </div>
